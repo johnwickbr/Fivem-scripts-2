@@ -19,9 +19,8 @@ Citizen.CreateThread(function()
 	end
 end)
 --[[End of WaterMark]]
-
 RegisterCommand('heal', function()
-    SetEntityHealth(myPed, 200)
+    SetEntityHealth(PlayerPedId(), 200)
     SetNotificationTextEntry("STRING")
     AddTextComponentString("Player ~g~Healed")
     DrawNotification(true, false)
@@ -29,7 +28,7 @@ end)
 TriggerEvent('chat:addSuggestion', '/heal', 'Resets Health')
 
 RegisterCommand('fix', function()
-    SetVehicleFixed(myVehicle)
+    SetVehicleFixed(GetVehiclePedIsIn(PlayerPedId(), false))
     SetNotificationTextEntry("STRING")
     AddTextComponentString("Vehicle ~b~Fixed")
     DrawNotification(true, false)
@@ -37,7 +36,7 @@ end)
 TriggerEvent('chat:addSuggestion', '/fix', 'Fixes Vehicle')
 
 RegisterCommand('clean', function()
-    SetVehicleDirtLevel(myVehicle)
+    SetVehicleDirtLevel(GetVehiclePedIsIn(PlayerPedId(), false))
     SetNotificationTextEntry("STRING")
     AddTextComponentString("Vehicle ~b~Cleaned")
     DrawNotification(true, false)
