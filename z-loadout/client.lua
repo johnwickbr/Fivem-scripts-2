@@ -114,3 +114,11 @@ RegisterCommand('giveall', function() --This way of giving 'all' the guns is pro
     DrawNotification(true, false)
 end, false)
 TriggerEvent('chat:addSuggestion', '/giveall', 'Gives all weapons')
+
+RegisterCommand('removeall', function() --@Terbium's Idea
+    RemoveAllPedWeapons(myPed, true)
+    SetNotificationTextEntry("STRING")
+    AddTextComponentString("~g~All Guns Removed")
+    DrawNotification(true, false)
+end, false)
+TriggerEvent('chat:addSuggestion', '/removeall', 'Removes all weapons')
